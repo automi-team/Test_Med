@@ -36,19 +36,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov
-    - name: Testing the code with pytest
-      run: |
-        pytest -v --cov=calculator
-    # - name: Pytest coverage comment
-    #   - name: Build coverage file
-    #     run: |
-    #       pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=my_bloc | tee pytest-coverage.txt
+    # - name: Testing the code with pytest
+    #   run: |
+    #     pytest -v --cov=calculator
+    - name: Pytest coverage comment
+      - name: Build coverage file
+        run: |
+          pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=my_bloc | tee pytest-coverage.txt
 
-    #   - name: Pytest coverage comment
-    #     uses: MishaKav/pytest-coverage-comment@main
-    #     with:
-    #       pytest-coverage-path: ./pytest-coverage.txt
-    #       junitxml-path: ./pytest.xml
+    - name: Pytest coverage comment
+      uses: MishaKav/pytest-coverage-comment@main
+      with:
+        pytest-coverage-path: ./pytest-coverage.txt
+        junitxml-path: ./pytest.xml
 
 
 
