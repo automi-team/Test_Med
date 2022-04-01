@@ -9,3 +9,4 @@ class Testbloc:
     def test_10(self):
         """ simple test """
         assert 100 == my_bloc.square(10)
+        
